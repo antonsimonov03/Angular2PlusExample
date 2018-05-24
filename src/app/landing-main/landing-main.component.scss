@@ -1,0 +1,262 @@
+// Height of the slider's handle
+/// @type String
+$control-height: 10px;
+/// Width of the slider's handle
+/// @type String
+$control-width: 10px;
+/// Color of the slider's handle
+/// @type Color
+$control-color: #fff;
+/// Size of the slider handle's text
+/// @type String
+$control-font-size: 12px;
+/// Font Weight of the slider handle's text
+/// @type String
+$control-font-weight: bold;
+/// Color of the slider's "fill" when connected
+/// @type Color
+$fill-color: deepskyblue;
+/// Height of the slider's gutter
+/// @type String
+$gutter-height: 6px;
+
+
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+.buy-sell {
+  height: 950px;
+  background: url("../../assets/img/buy-sell-bg.jpeg") no-repeat fixed center;
+  background-size: cover;
+  //filter: brightness(0.62); - fix background opacity
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  &__header {
+    display: block;
+    width: 800px;
+    font-family: Gotham, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  &__modal-wrap {
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    width: 1140px;
+  }
+
+  &__modal {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 448px;
+    height: 410px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: Sansation, sans-serif;
+
+    &-header {
+      margin-top: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 5px;
+      border-top: 3px solid transparent;
+
+      &--green {
+        border-color: #21D084;
+      }
+
+      &--blue {
+        border-color: #4DA9EB;
+      }
+    }
+
+    &-description {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    &-infolist {
+      margin-top: 35px;
+    }
+
+    &-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 156px;
+      height: 36px;
+      border: 1px solid #616161;
+      background-color: transparent;
+      border-radius: 5px;
+      font-weight: bold;
+      margin: 10px 0;
+
+      &--normal {
+        margin: 0;
+        font-weight: normal;
+      }
+
+      &--disabled {
+        color: #616161;
+      }
+    }
+
+    &-btn {
+      border: 1px solid transparent;
+      width: 332px;
+      height: 60px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+
+      &--green {
+        background-color: #21D084;
+        margin-top: 50px;
+      }
+
+      &--blue {
+        background-color: #4DA9EB;
+        margin-top: 32px;
+      }
+    }
+
+    &-inputs {
+      display: flex;
+      flex-flow: row nowrap;
+      height: 83px;
+      width: 332px;
+
+      .range {
+        width: 156px;
+
+
+        .noUi-background {
+          height: $gutter-height;
+        }
+        .noUi-base {
+          .noUi-connect {
+            background-color: $fill-color;
+          }
+          /// noUiSlider Handle
+          .noUi-handle {
+            background-color: $control-color;
+            border: 1px solid black;
+            border-radius: 50%;
+            box-shadow: none;
+            color: #FFFFFF;
+            display: table;
+            font-size: 15px;
+            height: $control-height;
+            left: 0;
+            margin-left: -22px;
+            margin-top: -($control-height/2) + $gutter-height/2 - 1;
+            padding: 0;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: $control-width;
+            z-index: 2;
+
+            &:before,
+            &:after {
+              display: none;
+            }
+
+            .noUi-horizontal & {
+              cursor: ew-resize;
+            }
+
+            &:hover {
+              background-color: lighten($control-color, 10%);
+            }
+
+            &.noUi-active {
+              background-color: darken($control-color, 10%);
+              z-index: 3;
+            }
+
+
+          }
+        }
+
+
+      }
+    }
+
+    .switch {
+      font-size: .75rem;
+      width: 156px;
+
+      &__label {
+
+        &--right {
+          margin-left: 10px;
+        }
+
+      }
+
+      &__checkbox {
+        visibility: hidden;
+      }
+
+      &__lever {
+        display: inline-block;
+        position: relative;
+        width: 34px;
+        height: 6px;
+        background-color: transparent;
+        border: 1px solid #616161;
+        border-radius: 15px;
+        vertical-align: middle;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          background-color: #fff;
+          border-radius: 50%;
+          left: -5px;
+          top: -5px;
+          transition: left .3s ease,background .3s ease;
+        }
+      }
+
+    }
+
+    &-controls {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      width: 332px;
+      height: 36px;
+    }
+
+    &-dropdown {
+      background-color: transparent;
+      border: 1px solid #616161;
+      width: 156px;
+      color: #fff;
+
+      &:after {
+        color: #4DA9EB;
+      }
+    }
+  }
+}

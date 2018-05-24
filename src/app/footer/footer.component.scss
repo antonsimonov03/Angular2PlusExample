@@ -1,0 +1,149 @@
+.main {
+  padding: 55px 0 40px;
+  display: flex;
+  justify-content: space-around;
+  font-family: Sansation, sans-serif;
+  border-top: 1px solid lightgray;
+
+  .links {
+    &__text {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    &-list {
+      padding: 0;
+      list-style-type: none;
+
+      &__item {
+        color: grey;
+      }
+    }
+  }
+
+  .media {
+    display: flex;
+    flex-basis: 30%;
+    flex-flow: column nowrap;
+
+    &__text {
+      @extend .links__text;
+      margin-bottom: 10px;
+    }
+
+    &__social {
+
+      &-list {
+        font-size: 1.6rem;
+        color: #fff;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        margin-bottom: 20px;
+      }
+      &-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: all .3s;
+
+        &--fb {
+          background-color: #3B5998;
+          border: 1px solid transparent;
+
+          &:hover {
+            background-color: #fff;
+            color: #3B5998;
+            border-color: #3B5998;
+          }
+
+        }
+
+        &--tw {
+          background-color: #55ACEE;
+          border: 1px solid transparent;
+
+          &:hover {
+            background-color: #fff;
+            color: #55ACEE;
+            border-color: #55ACEE;
+          }
+
+        }
+
+        &--gp {
+          background-color: #DC4E41;
+          border: 1px solid transparent;
+
+          &:hover {
+            background-color: #fff;
+            color: #DC4E41;
+            border-color: #DC4E41;
+          }
+
+        }
+
+        &--li {
+          background-color: #007AB9;
+          border: 1px solid transparent;
+
+          &:hover {
+            background-color: #fff;
+            color: #007AB9;
+            border-color: #007AB9;
+          }
+
+        }
+
+      }
+
+    }
+
+    &__app {
+
+      &-list {
+        display: flex;
+        flex-flow: row nowrap;
+
+      }
+
+      &-item {
+        height: 50px;
+        width: 140px;
+        cursor: pointer;
+
+        &--as {
+          background: url("../../assets/img/appstore.png") no-repeat center;
+          background-size: contain;
+        }
+
+        &--gp {
+          background: url("../../assets/img/googleplay.png") no-repeat center;
+          background-size: contain;
+          margin-right: 10px;
+        }
+
+      }
+    }
+
+  }
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #e5e5e5;
+  border-top: 1px solid lightgray;
+  color: grey;
+  font-family: Sansation, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+}

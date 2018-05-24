@@ -27,9 +27,10 @@
               "src/assets/img"
             ],
             "styles": [
-              "src/assets/styles/normalize.scss",
+              "node_modules/nouislider/distribute/nouislider.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/styles/normalize.scss",
               "src/styles.scss"
             ],
             "scripts": []

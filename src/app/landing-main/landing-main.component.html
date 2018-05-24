@@ -3,7 +3,6 @@
     <div class="container">
       <p class="buy-sell__header">Connecting Private Sellers with Genuine Buyers</p>
       <div class="row">
-
         <div class="buy-sell__modal-wrap">
 
           <div class="buy-sell__modal">
@@ -38,10 +37,8 @@
                 <nouislider
                   [(ngModel)]="range"
                   [connect]="true"
-                  [min]="range[0]"
-                  to_min="10"
-                  from_max="90"
-                  [max]="range[1]">
+                  [min]="35"
+                  [max]="80">
                 </nouislider>
               </div>
             </div>
@@ -53,10 +50,83 @@
             </div>
             <button class="buy-sell__modal-btn buy-sell__modal-btn--blue btn">Search</button>
           </div>
-
         </div>
-
+      </div>
+      <div class="row">
+        <div class="carousel-dots">
+          <div class="carousel-dots__item carousel-dots__item--active"></div>
+          <div class="carousel-dots__item"></div>
+          <div class="carousel-dots__item"></div>
+        </div>
+      </div>
+      <div class="row tab">
+        <div class="tab__list">
+          <div class="tab__item tab__item--active">Seller</div>
+          <div class="tab__item">Buyer</div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="advantages">
+    <div class="container">
+      <p class="advantages__header">Why Servicefy Marketplace is the best choice for you?</p>
+      <p class="advantages__description">Our ambition is to offer buyers quality used cars at dealer standards BUT without the high price tags. Buying a used car from our marketplace is a new experience with a great deal of transparency that is unusual in the used car space. Our platform is built for Morden Shoppers, who process data to make an informed choice.</p>
+      <div class="advantages__list">
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--car"></div>
+          <div>
+            <p class="advantage__header">Independent Inspection</p>
+            <p class="advantage__text">All vehicles are required to undergo an inspection before listing. Giving buyers confidence in your car.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--badge"></div>
+          <div>
+            <p class="advantage__header">3 Months Warranty</p>
+            <p class="advantage__text">To give buyers total peace of mind in buying your car, all vehicles are supplied with 3 months warranty.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--tyre"></div>
+          <div>
+            <p class="advantage__header">Experts Assistance</p>
+            <p class="advantage__text">Our Car Ninjas know their cars inside out and will utilise this expertise coupled with industry leading tools to showcase your car.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--shield"></div>
+          <div>
+            <p class="advantage__header">Secure Payment</p>
+            <p class="advantage__text">Payment processed using escrow methods, giving all parties peace of mind. Funds are released immediately using (FPS).</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--hands"></div>
+          <div>
+            <p class="advantage__header">Finance Payment Option</p>
+            <p class="advantage__text">We provide finance for peer-to-peer lending at a low competitive rate. Helping you to attract wider audience to purchase car.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--lamp"></div>
+          <div>
+            <p class="advantage__header">Achieve Better Margin</p>
+            <p class="advantage__text">Dealer standards and benefits BUT without the high price tag. Our price suggestion earns you more than a typical private seller.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
 </div>

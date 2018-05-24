@@ -28,7 +28,7 @@ $gutter-height: 6px;
 }
 
 .buy-sell {
-  height: 950px;
+  height: 925px;
   background: url("../../assets/img/buy-sell-bg.jpeg") no-repeat fixed center;
   background-size: cover;
   //filter: brightness(0.62); - fix background opacity
@@ -144,55 +144,59 @@ $gutter-height: 6px;
       .range {
         width: 156px;
 
-
-        .noUi-background {
-          height: $gutter-height;
+        .noUi-connect {
+          background-color: black;
         }
-        .noUi-base {
-          .noUi-connect {
-            background-color: $fill-color;
-          }
-          /// noUiSlider Handle
-          .noUi-handle {
-            background-color: $control-color;
-            border: 1px solid black;
-            border-radius: 50%;
-            box-shadow: none;
-            color: #FFFFFF;
-            display: table;
-            font-size: 15px;
-            height: $control-height;
-            left: 0;
-            margin-left: -22px;
-            margin-top: -($control-height/2) + $gutter-height/2 - 1;
-            padding: 0;
-            position: absolute;
-            text-align: center;
-            top: 0;
-            width: $control-width;
-            z-index: 2;
-
-            &:before,
-            &:after {
-              display: none;
-            }
-
-            .noUi-horizontal & {
-              cursor: ew-resize;
-            }
-
-            &:hover {
-              background-color: lighten($control-color, 10%);
-            }
-
-            &.noUi-active {
-              background-color: darken($control-color, 10%);
-              z-index: 3;
-            }
 
 
-          }
-        }
+        //.noUi-background {
+        //  height: $gutter-height;
+        //}
+        //
+        //.noUi-base {
+        //  .noUi-connect {
+        //    background-color: $fill-color;
+        //  }
+        //  /// noUiSlider Handle
+        //  .noUi-handle {
+        //    background-color: $control-color;
+        //    border: 1px solid black;
+        //    border-radius: 50%;
+        //    box-shadow: none;
+        //    color: #FFFFFF;
+        //    display: table;
+        //    font-size: 15px;
+        //    height: $control-height;
+        //    left: 0;
+        //    margin-top: -($control-height/2) + $gutter-height/2 - 1;
+        //    padding: 0;
+        //    position: absolute;
+        //    text-align: center;
+        //    top: 0;
+        //    width: $control-width;
+        //    z-index: 2;
+        //
+        //    &:before,
+        //    &:after {
+        //      display: none;
+        //    }
+        //
+        //    .noUi-horizontal & {
+        //      cursor: ew-resize;
+        //    }
+        //
+        //    &:hover {
+        //      background-color: lighten($control-color, 10%);
+        //    }
+        //
+        //    &.noUi-active {
+        //      background-color: darken($control-color, 10%);
+        //      z-index: 3;
+        //    }
+        //
+        //
+        //  }
+        //}
 
 
       }
@@ -201,6 +205,7 @@ $gutter-height: 6px;
     .switch {
       font-size: .75rem;
       width: 156px;
+      margin-top: 16px;
 
       &__label {
 
@@ -257,6 +262,166 @@ $gutter-height: 6px;
       &:after {
         color: #4DA9EB;
       }
+    }
+  }
+
+  .carousel-dots {
+    margin-top: 45px;
+    display: flex;
+    flex-flow: row nowrap;
+
+    &__item {
+      width: 12px;
+      height: 12px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background-color: transparent;
+      margin: 0 9px;
+      cursor: pointer;
+
+      &--active {
+        border: none;
+        background-color: #4DA9EB;
+      }
+
+    }
+  }
+
+  .tab {
+    &__list {
+      margin-top: 88px;
+      display: flex;
+      flex-flow: row nowrap;
+    }
+
+    &__item {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      width: 240px;
+      height: 60px;
+      font-family: Sansation, sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #424242;
+      background-color: #fff;
+
+      &--active {
+        color: #fff;
+        background-color: #4DA9EB;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 60px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 10px 15px 0 15px;
+          border-color: #4DA9EB transparent transparent transparent;
+        }
+      }
+    }
+  }
+}
+
+.advantages {
+  background-color: #eee;
+  font-family: Sansation, sans-serif;
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  &__header {
+    font-family: Gotham, sans-serif;
+    font-weight: bold;
+    margin-top: 60px;
+    font-size: 2.2rem;
+    color: #424242;
+  }
+
+  &__description {
+    position: relative;
+    width: 720px;
+    color: #70747F;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      border-radius: 100px;
+      background-color: #4DA9EB;
+      position: absolute;
+      left: -96px;
+      top: 10px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    width: 446px;
+    height: 216px;
+    background-color: #F7F7F7;
+    border-radius: 6px;
+    border: 1px solid #E8E8E8;
+    margin: 15px;
+    padding: 40px 24px;
+  }
+
+  .advantage {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: #70747F;
+
+    &__icon {
+      flex: 0 0 auto;
+      width: 80px;
+      height: 80px;
+      background: #4DA9EB no-repeat center;
+      border-radius: 50%;
+      margin-right: 24px;
+
+      &--car {
+      background-image: url("../../assets/icons/car.svg");
+      }
+
+      &--badge {
+        background-image: url("../../assets/icons/badge.svg");
+      }
+
+      &--tyre {
+        background-image: url("../../assets/icons/type-expert.svg");
+      }
+
+      &--shield {
+        background-image: url("../../assets/icons/shield.svg");
+      }
+
+      &--hands {
+        background-image: url("../../assets/icons/hands.svg");
+      }
+
+      &--lamp {
+        background-image: url("../../assets/icons/lamp.svg");
+      }
+    }
+
+    &__header {
+      font-size: 1.5rem;
+      color: #4DA9EB;
     }
   }
 }

@@ -7,7 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FooterComponent } from './footer/footer.component';
 import { LandingMainComponent } from './landing-main/landing-main.component';
-import { NouisliderModule } from 'ng2-nouislider';
+import { NouisliderModule} from 'ng2-nouislider';
+import {UiSwitchModule} from 'angular2-ui-switch';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import { NouisliderModule } from 'ng2-nouislider';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule,
     AngularFontAwesomeModule,
-    NouisliderModule
+    NouisliderModule,
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

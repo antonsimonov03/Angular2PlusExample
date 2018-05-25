@@ -5,14 +5,47 @@
       <div class="row">
         <div class="buy-sell__modal-wrap">
 
-          <div class="buy-sell__modal">
+          <div class="buy-sell__modal" *ngIf="!carSelected">
             <div class="buy-sell__modal-header buy-sell__modal-header--green">Selling</div>
             <div class="buy-sell__modal-description">Let's see how much you can save</div>
-            <div class="buy-sell__modal-infolist">
+            <div class="buy-sell__modal-infolist buy-sell__modal-infolist--centered">
               <div class="buy-sell__modal-info">RE14ZNO</div>
               <div class="buy-sell__modal-info">64538</div>
             </div>
-            <button class="buy-sell__modal-btn buy-sell__modal-btn--green btn">See my Savings</button>
+            <button class="buy-sell__modal-btn buy-sell__modal-btn--green btn"
+                    (click)="btnSellCarHandler()">{{btnSellCarText}}
+            </button>
+          </div>
+
+          <div class="buy-sell__modal buy-sell__modal--opaque" *ngIf="carSelected">
+            <div class="buy-sell__modal-header buy-sell__modal-header--green">2012 BMW 2 Series</div>
+            <div class="buy-sell__modal-description buy-sell__modal-description">You could save up to:</div>
+            <div class="buy-sell__modal-infolist">
+              <p class="buy-sell__modal-money">£500</p>
+              <table class="buy-sell__modal-prices">
+                <tr class="buy-sell__modal-row">
+                  <td class="buy-sell__modal-pricetext">Dealer forecourt:</td>
+                  <td class="buy-sell__modal-pricevalue">£500</td>
+                </tr>
+                <tr class="buy-sell__modal-row">
+                  <td class="buy-sell__modal-pricetext">Suggested price:</td>
+                  <td class="buy-sell__modal-pricevalue buy-sell__modal-pricevalue--highlighted">£8.000</td>
+
+                </tr>
+                <tr class="buy-sell__modal-row">
+                  <td class="buy-sell__modal-pricetext">Part exchange:</td>
+                  <td class="buy-sell__modal-pricevalue">£500</td>
+                </tr>
+                <tr class="buy-sell__modal-row">
+                  <td class="buy-sell__modal-pricetext">Car buying service:</td>
+                  <td class="buy-sell__modal-pricevalue">£500</td>
+                </tr>
+              </table>
+
+            </div>
+            <button class="buy-sell__modal-btn buy-sell__modal-btn--green btn"
+                    (click)="btnSellCarHandler()">{{btnSellCarText}}
+            </button>
           </div>
 
           <div class="buy-sell__modal">
@@ -28,22 +61,32 @@
             </div>
             <div class="buy-sell__modal-inputs">
               <div class="switch">
-                <label for="price">Price</label>
-                <input type="checkbox" id="price" class="switch__checkbox">
-                <span class="switch__lever"></span>
-                <label for="price" class="switch__label switch__label--right">Monthly</label>
+                <div class="switch__row">
+                  <p class="switch__text" [ngClass]="{'switch__text--selected': !switchChecked}">Price</p>
+                  <ui-switch
+                    color="transparent"
+                    [reverse]="true"
+                    (change)="onChange($event)"
+                  ></ui-switch>
+                  <p class="switch__text switch__text--right" [ngClass]="{'switch__text--selected': switchChecked}">Monthly</p>
+                </div>
               </div>
               <div class="range">
                 <nouislider
+                  type="integer"
                   [(ngModel)]="range"
                   [connect]="true"
-                  [min]="35"
-                  [max]="80">
+                  [min]="0"
+                  [max]="100"
+                  [config]="sliderConfig"
+                >
                 </nouislider>
               </div>
             </div>
             <div class="buy-sell__modal-controls">
-              <div class="buy-sell__modal-info buy-sell__modal-info--normal buy-sell__modal-info--disabled">POSTAL CODE</div>
+              <div class="buy-sell__modal-info buy-sell__modal-info--normal buy-sell__modal-info--disabled">POSTAL
+                CODE
+              </div>
               <button class="buy-sell__modal-dropdown btn dropdown-toggle" type="button">
                 RADIUS
               </button>
@@ -51,8 +94,7 @@
             <button class="buy-sell__modal-btn buy-sell__modal-btn--blue btn">Search</button>
           </div>
         </div>
-      </div>
-      <div class="row">
+
         <div class="carousel-dots">
           <div class="carousel-dots__item carousel-dots__item--active"></div>
           <div class="carousel-dots__item"></div>
@@ -61,8 +103,8 @@
       </div>
       <div class="row tab">
         <div class="tab__list">
-          <div class="tab__item tab__item--active">Seller</div>
-          <div class="tab__item">Buyer</div>
+          <div class="tab__item" [ngClass]="{'tab__item--active': !tabBuyer}" (click)="tabBuyer = false;">Seller</div>
+          <div class="tab__item" [ngClass]="{'tab__item--active': tabBuyer}" (click)="tabBuyer = true;">Buyer</div>
         </div>
       </div>
     </div>
@@ -72,7 +114,7 @@
     <div class="container">
       <p class="advantages__header">Why Servicefy Marketplace is the best choice for you?</p>
       <p class="advantages__description">Our ambition is to offer buyers quality used cars at dealer standards BUT without the high price tags. Buying a used car from our marketplace is a new experience with a great deal of transparency that is unusual in the used car space. Our platform is built for Morden Shoppers, who process data to make an informed choice.</p>
-      <div class="advantages__list">
+      <div class="advantages__list" *ngIf="!tabBuyer">
         <div class="advantages__item advantage">
           <div class="advantage__icon advantage__icon--car"></div>
           <div>
@@ -113,6 +155,64 @@
           <div>
             <p class="advantage__header">Achieve Better Margin</p>
             <p class="advantage__text">Dealer standards and benefits BUT without the high price tag. Our price suggestion earns you more than a typical private seller.</p>
+          </div>
+        </div>
+      </div>
+      <div class="advantages__list" *ngIf="tabBuyer">
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--car"></div>
+          <div>
+            <p class="advantage__header">Inspected Vehicles ONLY</p>
+            <p class="advantage__text">You have nothing to worry about- all vehicles undergo multipoint inspection checks. You can put your trust in your new car.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--folder"></div>
+          <div>
+            <p class="advantage__header">Background History Check</p>
+            <p class="advantage__text">We carry out comprehensive background history check on all vehicles- you're in good hands. All Checks carry our £40,000 data guarantee.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--gear"></div>
+          <div>
+            <p class="advantage__header">MOT Assured</p>
+            <p class="advantage__text">No one likes spending money on newly purchased cars. That's why all our vehicle come with minimum six months MOT.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--file"></div>
+          <div>
+            <p class="advantage__header">Reliable Vehicle Grading</p>
+            <p class="advantage__text">Long are the days of taking a mechanic friend along to view a car. Our grading algorithm generates a condition report that you view online.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--badge"></div>
+          <div>
+            <p class="advantage__header">3 Months Warranty</p>
+            <p class="advantage__text">To give buyers total peace of mind in buying your car, all vehicles are supplied with 3 months warranty.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--money"></div>
+          <div>
+            <p class="advantage__header">Save Money</p>
+            <p class="advantage__text">Taking the middleman (car dealer) out of the equation and connecting you directly to the seller prevents you paying car dealers overheads.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--hands"></div>
+          <div>
+            <p class="advantage__header">Finance Payment Option</p>
+            <p class="advantage__text">We provide finance for peer-to-peer lending at a low competitive rate. Helping you to attract wider audience to purchase car.</p>
+          </div>
+        </div>
+        <div class="advantages__item advantage">
+          <div class="advantage__icon advantage__icon--person"></div>
+          <div>
+            <p class="advantage__header">No Quibble, No Squabble Purchase</p>
+            <p class="advantage__text">Buying a car should be an enjoyable experience. Sadly, it doesn't always turn out that way. Now you can avoid provocative salespeople.</p>
           </div>
         </div>
       </div>
@@ -261,9 +361,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
 </div>

@@ -1,27 +1,29 @@
 @font-face {
   font-family: 'Sansation';
-  src: url("assets/fonts/sansation/Sansation_Regular.ttf");
+  src: url("assets/fonts/sansation/Sansation_Regular.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Sansation';
-  src: url("assets/fonts/sansation/Sansation_Bold.ttf");
+  src: url("assets/fonts/sansation/Sansation_Bold.ttf") format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Gotham;
-  src: url("assets/fonts/gotham/GothamLight.ttf");
+  font-family: 'Gotham';
+  src: url("assets/fonts/gotham/Gotham-Light.otf"),
+        url("assets/fonts/gotham/GothamLight.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Gotham;
-  src: url("assets/fonts/gotham/GothamMedium.ttf");
+  font-family: 'Gotham';
+  src: url("assets/fonts/gotham/Gotham-Bold.otf"),
+        url("assets/fonts/gotham/GothamMedium.ttf") format('truetype');
   font-weight: bold;
   font-style: normal;
 }

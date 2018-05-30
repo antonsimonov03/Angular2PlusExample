@@ -67,14 +67,13 @@
         border-radius: 6px;
         background-color: #ff4d00;
         color: #fff;
-        display: flex;
-        align-items: center;
 
         &::after {
           position: absolute;
           content: "";
           display: block;
           right: -17px;
+          top: 5px;
           width: 13px;
           height: 13px;
           background: url("../../assets/icons/info.svg") no-repeat center;
@@ -132,8 +131,7 @@
       line-height: 4rem;
       font-weight: bold;
       position: relative;
-      display: flex;
-      justify-content: center;
+      text-align: center;
 
       &::after {
         content: "";
@@ -143,6 +141,7 @@
         background-color: #171717;
         position: absolute;
         bottom: -5px;
+        left: -25%;
       }
     }
 
